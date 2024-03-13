@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_flutter_app/constants/app_colors.dart';
 
 class CallToActionMobile extends StatelessWidget {
   final String title;
@@ -11,7 +12,7 @@ class CallToActionMobile extends StatelessWidget {
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
       decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 70, 15, 70),
+          color: priamryColor,
           borderRadius: BorderRadius.all(Radius.circular(5))),
       child: Text(
         title,
