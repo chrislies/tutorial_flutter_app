@@ -9,7 +9,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case HomeRoute:
       return _getPageRoute(const HomeView());
     case AccountRoute:
-      return _getPageRoute(const AccountView());
+      return _getPageRoute(AccountView());
     case VideosRoute:
       return _getPageRoute(const VideosView());
     default:
