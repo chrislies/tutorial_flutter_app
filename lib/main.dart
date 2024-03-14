@@ -1,9 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
+import 'package:tutorial_flutter_app/auth/auth.dart';
+import 'package:tutorial_flutter_app/theme/dark_mode.dart';
+import 'package:tutorial_flutter_app/theme/light_mode.dart';
 import 'firebase_options.dart';
 
 import 'package:flutter/material.dart';
 import 'package:tutorial_flutter_app/locator.dart';
-import 'package:tutorial_flutter_app/views/home/layout_template/layout_template.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,11 +21,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const LayoutTemplate());
+      title: 'Flutter Demo',
+      theme: lightMode,
+      darkTheme: darkMode,
+      // home: const LayoutTemplate());
+      home: const AuthPage(),
+    );
   }
 }

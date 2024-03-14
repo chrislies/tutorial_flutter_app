@@ -4,8 +4,8 @@ import 'package:tutorial_flutter_app/locator.dart';
 import 'package:tutorial_flutter_app/services/navigation_service.dart';
 import 'package:tutorial_flutter_app/widgets/call_to_action/open_note_box.dart';
 
-class EpisodesView extends StatelessWidget {
-  const EpisodesView({super.key});
+class VideosView extends StatelessWidget {
+  const VideosView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class EpisodesView extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          const Text("Episodes"),
+          const Text("Videos"),
           StreamBuilder<QuerySnapshot>(
             stream: firestoreService.getNotesStream(),
             builder: ((context, snapshot) {

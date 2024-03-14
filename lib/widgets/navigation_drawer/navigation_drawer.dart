@@ -18,11 +18,11 @@ class NavDrawer extends StatelessWidget {
         children: [
           NavigationDrawerHeader(),
           DrawerItem(
-              title: "Episodes",
+              title: "Videos",
               icon: Icons.videocam,
-              navigationPath: EpisodesRoute),
+              navigationPath: VideosRoute),
           DrawerItem(
-              title: "About", icon: Icons.help, navigationPath: AboutRoute),
+              title: "Account", icon: Icons.help, navigationPath: AccountRoute),
         ],
       ),
     );
