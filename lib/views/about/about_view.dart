@@ -5,8 +5,18 @@ class AboutView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("About"),
+    return Center(
+      child: Column(
+        children: [
+          const Text("About"),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text("Go back"),
+          ),
+        ],
+      ),
     );
   }
 }

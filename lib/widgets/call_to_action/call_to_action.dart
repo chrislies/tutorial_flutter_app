@@ -12,9 +12,9 @@ class CallToAction extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout.builder(
       mobile: (BuildContext context) =>
-          const CallToActionMobile(title: "Mobile Button"),
+          const CallToActionMobile(title: "Post to Firebase DB"),
       desktop: (BuildContext context) =>
-          const CallToActionTabletDesktop(title: "Test Button"),
+          const CallToActionTabletDesktop(title: "Post to Firebase DB"),
     );
   }
 }

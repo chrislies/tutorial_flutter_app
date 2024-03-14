@@ -20,7 +20,6 @@ class NavBarItem extends StatelessWidget {
         // Don't use a service directly in the UI to change any kind of state
         // Services should only be used from a viewmodel
         locator<NavigationService>().navigateTo(navigationPath);
-        // _navigateTo(context);
       },
       child: Text(
         title,
@@ -28,9 +27,4 @@ class NavBarItem extends StatelessWidget {
       ),
     );
   }
-
-  // void _navigateTo(BuildContext context) {
-  //   final navigationService = NavigationService();
-  //   navigationService.navigateTo(navigationPath);
-  // }
 }
