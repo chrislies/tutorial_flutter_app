@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorial_flutter_app/locator.dart';
+import 'package:tutorial_flutter_app/services/navigation_service.dart';
 import 'package:tutorial_flutter_app/widgets/call_to_action/open_note_box.dart';
 
 class EpisodesView extends StatelessWidget {
@@ -7,6 +9,8 @@ class EpisodesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final NavigationService navigationService = NavigationService();
+
     return Center(
       child: Column(
         children: [
@@ -59,7 +63,8 @@ class EpisodesView extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              Navigator.pop(context);
+              // Navigator.pop(context);
+              locator<NavigationService>().navigateTo("home");
             },
             child: const Text("Go back"),
           ),
