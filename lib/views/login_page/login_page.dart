@@ -59,15 +59,13 @@ class _LoginPageState extends State<LoginPage> {
                   size: 80,
                   color: Theme.of(context).colorScheme.inversePrimary),
 
-              const SizedBox(height: 25),
-
               // app name
               const Text(
                 "YouTube Weekly 100",
                 style: TextStyle(fontSize: 20),
               ),
 
-              const SizedBox(height: 50),
+              const SizedBox(height: 25),
 
               // email textfield
               MyTextField(
