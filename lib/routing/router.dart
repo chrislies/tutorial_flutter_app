@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial_flutter_app/views/account/account_view.dart';
+import 'package:tutorial_flutter_app/views/favorites/favorites_view.dart';
 import 'package:tutorial_flutter_app/views/home/home_view.dart';
 import 'package:tutorial_flutter_app/routing/route_names.dart';
 import 'package:tutorial_flutter_app/views/videos/videos_view.dart';
@@ -12,6 +13,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(AccountView());
     case VideosRoute:
       return _getPageRoute(const VideosView());
+    case FavoutesRoute:
+      return _getPageRoute(const FavoritesView());
     default:
       return _getPageRoute(Container());
   }

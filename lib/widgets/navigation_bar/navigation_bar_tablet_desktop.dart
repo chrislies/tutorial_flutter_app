@@ -17,7 +17,9 @@ class NavigationBarTabletDesktop extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              NavBarItem(title: "Videos", navigationPath: VideosRoute),
+              NavBarItem(title: "Videos", navigationPath: HomeRoute),
+              SizedBox(width: 60),
+              NavBarItem(title: "Favorites", navigationPath: FavoutesRoute),
               SizedBox(width: 60),
               NavBarItem(title: "Account", navigationPath: AccountRoute),
             ],

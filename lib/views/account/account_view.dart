@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:tutorial_flutter_app/helper/helper_functions.dart';
 import 'package:tutorial_flutter_app/locator.dart';
 import 'package:tutorial_flutter_app/services/navigation_service.dart';
+import 'package:tutorial_flutter_app/widgets/my_back_button.dart';
 
 class AccountView extends StatelessWidget {
   AccountView({super.key});
@@ -26,11 +28,11 @@ class AccountView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Profile"),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        elevation: 0,
-      ),
+      // appBar: AppBar(
+      //   title: const Text("Profile"),
+      //   backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      //   elevation: 0,
+      // ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: FutureBuilder<DocumentSnapshot<Map<String, dynamic>>>(
         future: getUserDetails(),
@@ -48,12 +50,86 @@ class AccountView extends StatelessWidget {
             Map<String, dynamic>? user = snapshot.data!.data();
 
             return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Stack(
                 children: [
-                  Text(user!['email']),
-                  Text(user['username']),
-                  Text(_formatTimestamp(user['created'])),
+                  if (!isDesktopView(context))
+                    const Padding(
+                      padding: EdgeInsets.all(30.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          MyBackButton(),
+                        ],
+                      ),
+                    ),
+
+                  // Account Heading
+                  const Padding(
+                    padding: EdgeInsets.only(top: 30),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Account",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            user!['username'],
+                            style: const TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          const SizedBox(height: 10),
+                          Text(
+                            user['email'],
+                            style: TextStyle(color: Colors.grey[600]),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+
+                  // Join Date and log out
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "Joined on: ${_formatTimestamp(user['created'])}",
+                            ),
+                            TextButton(
+                              onPressed: logout,
+                              child: const Text(
+                                "Log Out",
+                                style: TextStyle(
+                                  color: Color.fromARGB(255, 200, 0, 0),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             );
